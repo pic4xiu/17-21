@@ -11,15 +11,15 @@ void matrixchain()
 {
 	int i,r,j,k;
 	memset(m,0,sizeof(m));
-	memset(s,0,sizeof(s));//³õÊ¼»¯Êı×é
-	for(r=2;r<=n;r++)//¾ØÕóÁ¬³ËµÄ¹æÄ£Îªr 
+	memset(s,0,sizeof(s));//åˆå§‹åŒ–æ•°ç»„
+	for(r=2;r<=n;r++)//çŸ©é˜µè¿ä¹˜çš„è§„æ¨¡ä¸ºr 
 	{
 		for(i=1;i<=n-r+1;i++)
 		{
 			j=i+r-1;
-			m[i][j]=m[i+1][j]+p[i-1]*p[i]*p[j];//¶Ôm[][]¿ªÊ¼¸³Öµ
-			s[i][j]=i;//s[][]´æ´¢¸÷×ÓÎÊÌâµÄ¾ö²ßµã
-			for(k=i+1;k<j;k++)//Ñ°ÕÒ×îÓÅÖµ
+			m[i][j]=m[i+1][j]+p[i-1]*p[i]*p[j];//å¯¹m[][]å¼€å§‹èµ‹å€¼
+			s[i][j]=i;//s[][]å­˜å‚¨å„å­é—®é¢˜çš„å†³ç­–ç‚¹
+			for(k=i+1;k<j;k++)//å¯»æ‰¾æœ€ä¼˜å€¼
 			{
 				int t=m[i][k]+m[k+1][j]+p[i-1]*p[k]*p[j];
 				if(t < m[i][j])
@@ -41,7 +41,7 @@ void print(int i,int j)
 	}
 	cout<<"(";
 	print(i,s[i][j]);
-	print(s[i][j]+1,j);//µİ¹é1µ½s[1][j]
+	print(s[i][j]+1,j);//é€’å½’1åˆ°s[1][j]
 	cout<<")";
 }
 
@@ -53,7 +53,7 @@ int main()
 	cout<<"input the number of every martix's row and column:"<<endl;
 	for(i=0;i<=n;i++)
 		cin>>p[i];
-	matrixchain();                                                       //Ê²Ã´ÒâË¼
+	matrixchain();                                                       //ä»€ä¹ˆæ„æ€
 	print(1,n);
 	cout<<endl;
 	cout<<"the min is:"<<m[1][n]<<endl;
