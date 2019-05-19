@@ -24,6 +24,6 @@ next:  	mov dx,offset wrong
 	int 21h		;输出wrong内容
 	jmp again
 done:	int 3h
-	mov ah,4ch
+	mov ax,4c00h
 	int 21h
 	end
