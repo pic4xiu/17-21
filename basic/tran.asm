@@ -26,6 +26,6 @@ display:	mov ah,02h
 	mov dl,al
 	int 21h
 	loop again
-done:	mov ah,4ch
+done:	mov ax,4c00h
 	int 21h
 	end
