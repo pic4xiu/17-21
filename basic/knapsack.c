@@ -6,10 +6,6 @@ int V[200][200];
 int KnapSack(int n, int w[], int v[], int x[], int C)
 {
     int i, j;
-    for (i = 0; i <= n; i++)
-        V[i][0] = 0;
-    for (j = 0; j <= C; j++)
-        V[0][j] = 0;
     for (i = 0; i < n; i++){
         for (j = 0; j < C+1; j++){
             if (j<w[i])
@@ -29,7 +25,7 @@ int KnapSack(int n, int w[], int v[], int x[], int C)
         else
             x[i] = 0;
     }
-    printf("选中的物品是:\n");
+    printf("You have chosed :\n");
     for (i = 0; i<n; i++)
         printf("%d ", x[i]);
     printf("\n");
@@ -47,14 +43,14 @@ int KnapSack(int n, int w[], int v[], int x[], int C)
 
 int main()
 {
-    int s;//最大价值
-    int w[5] = {2,2,6,5,4};//重量
-    int v[5] = {6,3,5,4,6};//价值
-    int x[5];//选取状态
+    int s;//max value
+    int w[5] = {2,2,6,5,4};//weight
+    int v[5] = {6,3,5,4,6};//value
+    int x[5];//whether chosed
     int n = 5;
-    int C=10;//背包容量
+    int C=10;//the capacity
     s = KnapSack(n, w, v, x, C);
-    printf("最大物品价值为:\n");
+    printf("the value of them is:\n");
     printf("%d\n", s);
     system("pause");
     return 0;
