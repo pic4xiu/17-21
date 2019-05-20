@@ -2,7 +2,7 @@
 #include<stdio.h>
 #include<cstdlib>
 #define max(a,b)  (((a)>(b))?(a):(b))
-int V[200][200];
+int V[10][10];
 int KnapSack(int n, int w[], int v[], int x[], int C)
 {
     int i, j;
