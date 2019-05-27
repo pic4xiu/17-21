@@ -1,7 +1,7 @@
 data segment
 str1 db 'arrayP:','$'    
 str2 db 'arrayN:','$'
-array  dw -1,-2,-3,-4,-5,-6,-7,-8,-7,-8,-9,-1,-1,-1,-2,3,4,5,6,7 
+array  dw 1,2,3,-4,-5,-6,7,3,8,7,8,9,1,1,1,2,3,4,5,6,7 
 data ends
  
 ext segment
@@ -26,6 +26,7 @@ start:
     
 T:  mov ax,[bx]
     cmp ax,0
+    je L
     jg P
     mov es:[di],ax 
     add es:[a],1
@@ -45,6 +46,13 @@ T:  mov ax,[bx]
     mov dl,es:[b] 
     cmp dl,3ah
     jb  q
+    cmp dl,44h
+    jb  n
+    mov dl,'2'
+    int 21h
+    mov dl,'0'
+    jmp q
+n:
     mov cl,dl
     sub cl,10
     mov dl,'1'
@@ -57,13 +65,20 @@ q:
     mov ah,2
     int 21h
     
- mov dx,offset str1
+    mov dx,offset str2
     mov ah,09h
     int 21h
     mov ah,2
     mov dl,es:[a]
     cmp dl,3ah
     jb  m
+    cmp dl,44h
+    jb  o
+    mov dl,'2'
+    int 21h
+    mov dl,'0'
+    jmp q
+o:
     mov cl,dl
     sub cl,10
     mov dl,'1'

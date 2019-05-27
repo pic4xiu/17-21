@@ -5,7 +5,9 @@ start:
  int 21h
  mov bl,al                  
  mov ah,2
- mov dl,':'                                 
+ mov dl,'-'                                 
+ int 21h
+ mov dl,'>'                                 
  int 21h
  mov cx,8                                
 again:
