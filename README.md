@@ -1,6 +1,6 @@
 ## C
 
-> some **easy** C program
+> some **easy**  program
 
 - like `printf("hello world!");`
 
@@ -10,9 +10,9 @@
 
 |文件夹|内容|
  :-: | :-: |
-|basic|一些简单的算法|
-|spider|简单的爬虫|
-|题目链接|CTF比赛中的一些题|
+|basic|Programming problem|
+|spider|web crawler|
+|题目链接|Questions in the CTF|
 
 
 
