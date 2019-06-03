@@ -20,6 +20,3 @@ int main()
     printf("最小公倍数为%d", LCM(a, b));
     return 0;
 }
-
-
-//GCD
