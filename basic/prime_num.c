@@ -12,6 +12,3 @@ int main()
     }
     return 0;
 }
-
-
-//prime num
