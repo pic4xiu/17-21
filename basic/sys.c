@@ -14,7 +14,7 @@ typedef struct student
 }student;
 student* head = NULL;
 int length = 0;
-int state[105]={0};
+int state[105];
 int cont = -1;
 void create()
 {
@@ -118,6 +118,27 @@ void search()
 		printf("-1\n");
 	return;
 }
+
+
+void sort(char title[][50],int n) {//排序
+    int i,j,k;
+    char tstr[50];
+    for(i = 0; i < n - 1; ++i) {
+        k = i;
+        for(j = i + 1; j < n; ++j) {
+            if(strcmp(title[k],title[j]) > 0)
+                k = j;
+        }
+        if(k != i) {
+            strcpy(tstr,title[k]);
+            strcpy(title[k],title[i]);
+            strcpy(title[i],tstr);
+        }
+    }
+}
+  
+
+
 void search1()
 {
 	int num, count;
@@ -140,7 +161,9 @@ void search1()
 	printf("%d\n", count);
 	if (count == 0)
 		return;
-	for (int i = 0; i < count; i++) {
+
+sort(str,count);
+/*	for (int i = 0; i < count; i++) {
 		for (int j = 0; j < count - i; j++) {
 			if (strcmp(str[j], str[j + 1]) > 0) {
 				strcpy(temp, str[j]);
@@ -149,7 +172,7 @@ void search1()
 			}
 		}
 	}
-	for (int i = 0; i < count; i++) {
+*/	for (int i = 0; i < count; i++) {
 		if (i == count - 1)
 			printf("%s\n", str[i]);
 		else
@@ -244,6 +267,7 @@ void init()
 
 int main()
 {
+	memset(state,-1,105);
 	int a;
 	int j;
 int num;
