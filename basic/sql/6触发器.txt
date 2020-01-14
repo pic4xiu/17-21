@@ -1,0 +1,71 @@
+create database cont
+on primary
+(
+name='cont.mdf',
+filename='d:\cont.mdf',
+size=5mb,
+maxsize=100mb,
+filegrowth=10%
+)
+log on
+(
+name='cont.ldf',
+filename='d:\cont.ldf',
+size=5,
+maxsize=unlimited,
+filegrowth=1mb
+)
+
+CREATE TABLE People
+(
+Pno int PRIMARY KEY,
+Pname nchar(10),
+Pleft int check (Pleft>0),
+Pcreate_time nchar(10),
+Xno int,
+);
+
+CREATE TABLE ChuXu
+(
+Xno int PRIMARY KEY,
+Xname nchar(10),
+Xaddr nchar(10),
+Xnum int check (Xnum>0),
+Xcity nchar(10)
+);
+
+use cont
+go
+create trigger delte
+on ChuXu
+for DELETE
+as
+declare @a int
+select @a=Xno from deleted
+if exists(select Pno from People where Xno=@a)
+begin
+	print'you can not delete'
+	rollback
+end
+DELETE FROM ChuXu WHERE Xno = 1
+
+
+
+
+
+
+
+
+create trigger delte
+on ChuXu
+for INSERT
+as
+declare @a int
+select @a=Xno from INSERTED
+declare @b int
+select @b=Cno from
+(select top 1 Cno, count(Cno) as [pidcount] from Course
+group by Cno
+order by pidcount asc)
+insert into xuanke(Pno,Cno) values(@a,@b)
+
