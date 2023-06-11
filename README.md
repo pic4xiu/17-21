@@ -1,6 +1,6 @@
-## 大学的东西（时代的眼泪
+## 常看常新
 
-> some **easy**  program
+> 时代的眼泪，本科的东西
 
 - like `printf("hello world!");`
 
